@@ -1,0 +1,7 @@
+// .vscode/settings.json
+
+{
+    "java.project.referencedLibraries": [
+        "sqlite-jdbc.jar"
+    ]
+}
