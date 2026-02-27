@@ -71,6 +71,7 @@ public class GameForm extends JFrame {
         ) {
             result = "You win!";
             updateScore(username);
+            System.out.println("Updating score for: " + username);
         } else {
             result = "You lose!";
         }
@@ -85,6 +86,7 @@ public class GameForm extends JFrame {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.executeUpdate();
+            System.out.println("Updating score for: " + username);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
