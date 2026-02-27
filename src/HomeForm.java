@@ -24,16 +24,25 @@ public class HomeForm extends JFrame {
         btnPlayMemory.setBounds(100, 110, 150, 30);
         add(btnPlayMemory);
 
+        JButton btnSnake = new JButton("Play Snake Game");
+        btnSnake.setBounds(100, 150, 150, 30);
+        add(btnSnake);
+
         JButton btnLeaderboard = new JButton("Leaderboard");
-        btnLeaderboard.setBounds(100, 150, 150, 30);
+        btnLeaderboard.setBounds(100, 190, 150, 30);
         add(btnLeaderboard);
 
         JButton btnLogout = new JButton("Logout");
-        btnLogout.setBounds(100, 190, 150, 30);
+        btnLogout.setBounds(100, 230, 150, 30);
         add(btnLogout);
 
         btnPlay.addActionListener(e -> {
             new GameForm(username);
+            dispose();
+        });
+
+        btnSnake.addActionListener(e -> {
+            new SnakeGame(username);
             dispose();
         });
 
