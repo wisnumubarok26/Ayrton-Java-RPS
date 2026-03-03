@@ -118,6 +118,7 @@ public class SnakeGame extends JFrame implements ActionListener {
             applesEaten++;
             lblScore.setText("Score: " + applesEaten);
             newApple();
+            updateScore(username);
         }
     }
 
@@ -217,4 +218,18 @@ public class SnakeGame extends JFrame implements ActionListener {
             }
         }
     }
+
+    private void updateScore(String username) {
+        try {
+            Connection conn = Koneksi.connect();
+            String sql = "UPDATE users SET score_snakegame = score_snakegame + 2 WHERE username=?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, username);
+            stmt.executeUpdate();
+            System.out.println("Updating score for: " + username);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+   
 }

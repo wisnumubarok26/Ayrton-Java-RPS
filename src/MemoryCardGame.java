@@ -158,7 +158,7 @@ public class MemoryCardGame extends JFrame {
     private void updateScore(String username) {
         try {
             Connection conn = Koneksi.connect();
-            String sql = "UPDATE users SET score = score + 1 WHERE username=?";
+            String sql = "UPDATE users SET score_memory_card = score_memory_card + 10 WHERE username=?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.executeUpdate();

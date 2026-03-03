@@ -18,18 +18,24 @@ public class LeaderboardForm extends JFrame {
         JTable table = new JTable();
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Username");
-        model.addColumn("Score");
+        model.addColumn("RPS");
+        model.addColumn("Memory Card");
+        model.addColumn("Snake Game");
+        model.addColumn("Total Score");
 
         try {
             Connection conn = Koneksi.connect();
-            String sql = "SELECT username, score FROM users ORDER BY score DESC";
+            String sql = "SELECT username, score, score_memory_card,score_snakegame,(score+score_memory_card+score_snakegame) as "+"total"+" FROM users ORDER BY " + "total"+" DESC";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 model.addRow(new Object[]{
                         rs.getString("username"),
-                        rs.getInt("score")
+                        rs.getInt("score"),
+                        rs.getInt("score_memory_card"),
+                        rs.getInt("score_snakegame"),
+                        rs.getInt("total")
                 });
             }
         } catch (Exception e) {
