@@ -9,8 +9,7 @@ public class LeaderboardForm extends JFrame {
         setTitle("Leaderboard");
         setSize(400, 300);
         setLayout(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         JLabel lblTitle = new JLabel("Leaderboard");
         lblTitle.setBounds(150, 10, 150, 20);
         add(lblTitle);
