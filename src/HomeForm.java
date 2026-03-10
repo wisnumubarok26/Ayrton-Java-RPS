@@ -8,7 +8,7 @@ public class HomeForm extends JFrame {
         username = u;
 
         setTitle("Home");
-        setSize(350, 300);
+        setSize(350, 400);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -28,13 +28,31 @@ public class HomeForm extends JFrame {
         btnSnake.setBounds(100, 150, 150, 30);
         add(btnSnake);
 
+        JButton spaceInvadersButton = new JButton("Play Space Invaders");
+        spaceInvadersButton.setBounds(100, 190, 150, 30);
+        add(spaceInvadersButton);
+        spaceInvadersButton.addActionListener(e -> {
+            JFrame frame = new JFrame("Space Invaders - Beta Version Release 1.0.1");
+
+            SpaceinvedersGame game = new SpaceinvedersGame(username);       
+
+            frame.add(game);
+            frame.pack();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+            dispose();
+        });
+
         JButton btnLeaderboard = new JButton("Leaderboard");
-        btnLeaderboard.setBounds(100, 190, 150, 30);
+        btnLeaderboard.setBounds(100, 230, 150, 30);
         add(btnLeaderboard);
 
         JButton btnLogout = new JButton("Logout");
-        btnLogout.setBounds(100, 230, 150, 30);
+        btnLogout.setBounds(100, 270, 150, 30);
         add(btnLogout);
+
+        
 
         btnPlay.addActionListener(e -> {
             new GameForm(username);
